@@ -75,7 +75,7 @@ build-linux-arm64-nogui:
 build-linux-xdg-musl:
     rm -f out/ferium-linux-musl-xdg.zip
     mkdir -p out
-    CC=clang-14 cargo rustc --target=x86_64-unknown-linux-musl --release --no-default-features -- --features xdg -Clink-self-contained=yes -Clinker=rust-lld
+    CC=clang-14 cargo rustc --target=x86_64-unknown-linux-musl --release --no-default-features --features xdg -- -Clink-self-contained=yes -Clinker=rust-lld
     zip -r out/ferium-linux-musl-xdg.zip -j target/x86_64-unknown-linux-musl/release/ferium
 
 # Build for Musl Linux without a GUI backend
