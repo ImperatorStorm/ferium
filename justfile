@@ -50,13 +50,6 @@ build-linux-nogui:
     CC=clang-14 cargo rustc --target=x86_64-unknown-linux-gnu --release --no-default-features -- -Clink-self-contained=yes -Clinker=rust-lld
     zip -r out/ferium-linux-gnu-nogui.zip -j target/x86_64-unknown-linux-gnu/release/ferium
 
-# Build for GNU Linux ARM64 with a GTK backend
-build-linux-arm64-gtk:
-    rm -f out/ferium-linux-gnu-arm64-gtk.zip
-    mkdir -p out
-    CC=clang-14 cargo rustc --target=aarch64-unknown-linux-gnu --release --features gtk -- -Clink-self-contained=yes -Clinker=rust-lld
-    zip -r out/ferium-linux-gnu-arm64-gtk.zip -j target/aarch64-unknown-linux-gnu/release/ferium
-
 # Build for GNU Linux ARM64 with an XDG backend
 build-linux-arm64-xdg:
     rm -f out/ferium-linux-gnu-arm64-xdg.zip
