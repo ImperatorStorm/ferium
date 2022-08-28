@@ -31,9 +31,8 @@ jobs:
           install: |
             apt-get update -y
             apt-get install -y gcc-12 libgcc-s1 libgtk-3-dev libcairo2-dev libpango1.0-dev libfreetype-dev libpangocairo-1.0-0 libglib2.0-dev libcairo-gobject2 libatk1.0-dev libgdk-pixbuf-2.0-dev libharfbuzz-dev libgio2.0-cil-dev libgio-qt-dev git curl clang lld
-            curl -L https://sh.rustup.rs --output rustup-init.sh && chmod +x rustup-init.sh && ./rustup-init.sh --default-host aarch64-unknown-linux-gnu --default-toolchain nightly --profile minimal -y && echo $HOME/.cargo
           run: |
-            echo $HOME && ls $HOME -R
+            curl -L https://sh.rustup.rs --output rustup-init.sh && chmod +x rustup-init.sh && ./rustup-init.sh --default-host aarch64-unknown-linux-gnu --default-toolchain nightly --profile minimal -y
             source $HOME/.cargo/env
             CC=clang LDFLAGS="-fuse-ld=lld" cargo -Zsparse-registry rustc --release --features gtk -- -Clink-self-contained=yes -Clinker=clang
       - name: Upload build artifacts
