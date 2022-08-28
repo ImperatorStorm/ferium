@@ -17,7 +17,7 @@ jobs:
           run: |
             apt-get update
             # install clang-14 on focal
-            apt-get install gcc12 libgcc-s1 libgtk-3-dev libcairo2-dev libpango1.0-dev libfreetype-dev libpangocairo-1.0-0 libglib2.0-dev libcairo-gobject2 libatk1.0-dev libgdk-pixbuf-2.0-dev libharfbuzz-dev libgio2.0-cil-dev libgio-qt-dev git curl
+            apt-get install gcc-12 libgcc-s1 libgtk-3-dev libcairo2-dev libpango1.0-dev libfreetype-dev libpangocairo-1.0-0 libglib2.0-dev libcairo-gobject2 libatk1.0-dev libgdk-pixbuf-2.0-dev libharfbuzz-dev libgio2.0-cil-dev libgio-qt-dev git curl
             curl -LO https://apt.llvm.org/llvm.sh
             chmod +x llvm.sh
             ./llvm.sh 14
