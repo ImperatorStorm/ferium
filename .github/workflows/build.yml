@@ -34,7 +34,7 @@ jobs:
           run: |
             curl -L https://sh.rustup.rs --output rustup-init.sh && chmod +x rustup-init.sh && ./rustup-init.sh --default-host aarch64-unknown-linux-gnu --default-toolchain nightly --profile minimal -y
             source $HOME/.cargo/env
-            CC=clang LDFLAGS="-fuse-ld=lld" cargo -Zsparse-registry rustc --release --features gtk -- -Clink-self-contained=yes -Clinker=clang
+            CC=clang LDFLAGS="-fuse-ld=~/.rustup/toolchains/nightly-aarch64-unknown-linux-gnu/lib/rustlib/aarch64-unknown-linux-gnu/bin/rust-lld" cargo -Zsparse-registry rustc --release --features gtk -- -Clink-self-contained=yes -Clinker=clang
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
